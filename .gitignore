@@ -1,0 +1,119 @@
+# See https://help.github.com/ignore-files/ for more about ignoring files.
+
+# dependencies
+node_modules/
+
+# testing
+coverage/
+
+# production
+build/
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+
+### OSX ###
+.DS_Store
+.AppleDouble
+.LSOverride
+
+### SublimeText ###
+# cache files for sublime text
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+
+# workspace files are user-specific
+*.sublime-workspace
+
+# project files should be checked into the repository, unless a significant
+# proportion of contributors will probably not be using SublimeText
+# *.sublime-project
+
+# sftp configuration file
+sftp-config.json
+
+# Basics
+*.py[cod]
+__pycache__
+
+# Logs
+logs
+*.log
+pip-log.txt
+npm-debug.log*
+
+# Unit test / coverage reports
+.coverage
+.coverage_html/
+.tox
+nosetests.xml
+htmlcov
+.pytest_cache
+
+# Translations
+*.mo
+*.pot
+
+# Pycharm
+.idea/*
+
+data/
+python/
+venv/
+.#*
+.credentials
+.tern-port
+.idea
+zappa-settings.json
+
+# Vim
+
+*~
+*.swp
+*.swo
+
+# npm
+node_modules/
+
+# Compass
+.sass-cache
+
+# environment files for docker compose
+.env*
+
+# User-uploaded media
+napp/media/
+fixtures/
+staticfiles/
+.cache/
+
+# nodejs
+web/build/*
+node_modules/*
+
+# secure stuff.
+*.pem
+certificates/
+private_tests/
+
+cc.egg-info/
+.eggs/
+dist/
+
+.ipynb_checkpoints/
+Untitled*.ipynb
+.vscode/
+
+handler_venv/
+data.bak/
+

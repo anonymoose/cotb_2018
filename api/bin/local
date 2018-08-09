@@ -1,0 +1,35 @@
+#!/bin/bash
+
+#
+# Run the server on port 8000
+# Example:
+#    bin/local
+#
+
+SCRIPTPATH="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd $SCRIPTPATH/..
+
+PORT=$1
+if [ -z "${PORT}" ]; then
+    PORT=8080
+fi
+
+echo '---------------------------------------------------------'
+echo '--              Running Flask Locally                  --'
+echo '---------------------------------------------------------'
+
+if [ ! -f $SCRIPTPATH/../venv/bin/activate ]; then
+    $SCRIPTPATH/venv
+    if [ "$?" != "0" ]; then
+        echo "VENV creation failed."
+        exit 1
+    fi
+fi
+
+export CC_LOCAL=1
+source $SCRIPTPATH/../venv/bin/activate
+source $SCRIPTPATH/../.env
+export FLASK_ENV=""
+export FLASK_DEBUG=true
+export FLASK_APP=cotb
+flask run --port $PORT

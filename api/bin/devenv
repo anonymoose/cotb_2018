@@ -1,0 +1,14 @@
+#!/bin/bash
+
+SCRIPTPATH="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd $SCRIPTPATH/..
+
+# python3.6.x only until zappa catches up.
+brew install https://raw.githubusercontent.com/Homebrew/homebrew-core/f2a764ef944b1080be64bd88dca9a1d80130c558/Formula/python.rb
+brew pin python3
+brew switch python3 3.6.5_1
+/usr/local/bin/pip3 install --upgrade pip virtualenv
+virtualenv -p python3 venv
+source venv/bin/activate
+
+pip install -r ./requirements.txt
