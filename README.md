@@ -47,14 +47,7 @@ $ open http://localhost:3000
 
 ## Push to production
 
-First, build the webapp.  Make sure you change BUCKET_NAME in bin/deploy to match your environment.
-
-```
-$ cd ./web
-$ bin/deploy
-```
-
-Next, initialize Zappa packaging in the api directory.
+First, initialize Zappa packaging in the api directory.
 
 Below is a sample session that works for my AWS.  Your values will be different.
 
@@ -125,5 +118,41 @@ and stop by our Slack channel here: https://slack.zappa.io
 Enjoy!,
  ~ Team Zappa!
 
+```
+
+Next deploy the API portion of your application.
 
 ```
+$ zappa deploy dev
+
+Calling deploy for stage dev..
+Downloading and installing dependencies..
+ - sqlite==python36: Using precompiled lambda package
+Packaging project as zip.
+Uploading api-dev-1533858490.zip (5.7MiB)..
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 6.00M/6.00M [00:02<00:00, 2.07MB/s]
+Scheduling..
+Scheduled api-dev-zappa-keep-warm-handler.keep_warm_callback with expression rate(4 minutes)!
+Uploading api-dev-template-1533858497.json (1.5KiB)..
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1.58K/1.58K [00:00<00:00, 4.47KB/s]
+Waiting for stack api-dev to create (this can take a bit)..
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 4/4 [00:09<00:00,  2.71s/res]
+Deploying API Gateway..
+Deployment complete!: https://ner2byutgl.execute-api.us-east-1.amazonaws.com/dev
+
+```
+
+Take that URL and plug it into the `web/src/App.js` as the URL_BASE variable.
+
+
+After you have made this change, it is time to deploy your React app to S3.
+
+Build and deploy the webapp.  Make sure you change BUCKET_NAME in bin/deploy to match your environment.
+
+```
+$ cd ./web
+$ bin/deploy
+```
+
+Log into AWS S3 Console and configure the bucket for static hosting. [Static Hosting Reference](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html)
+
