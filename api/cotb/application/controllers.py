@@ -10,8 +10,8 @@ from cotb import app
 log = logging.getLogger(__name__)
 
 
-FIRST_NAME = "Ken"
-LAST_NAME = "Bedwell"
+FIRST_NAME = "Jason"
+LAST_NAME = "Gerard"
 
 
 @cross_origin(headers=['Content-Type'])

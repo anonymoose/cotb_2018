@@ -1,16 +1,11 @@
 import React, { Component } from 'react';
-import {
-  Button
-} from 'react-bootstrap';
+import {Button} from 'react-bootstrap';
 import ken from './ken.jpg';
 import chuck from './chuck.jpg';
 import './App.css';
 
-
-
 // const URL_BASE = "http://localhost:8080";
-
-const URL_BASE = "https://pedmm2isgj.execute-api.us-east-1.amazonaws.com/dev";
+const URL_BASE = "https://zu96jwihe7.execute-api.us-east-1.amazonaws.com/dev";
 
 
 class App extends Component {

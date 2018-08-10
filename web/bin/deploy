@@ -3,10 +3,19 @@
 SCRIPTPATH="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd $SCRIPTPATH/..
 
+set -e
+
 BUCKET=s3://nuvuli-web-cotb2018
+
+export NVM_DIR="$HOME/.nvm"
+. "/usr/local/opt/nvm/nvm.sh"
+nvm use 10
 
 rm -rf $SCRIPTPATH/../build
 yarn build
 cd $SCRIPTPATH/../build
 aws s3 mb $BUCKET
 aws s3 sync . $BUCKET
+
+
+open http://nuvuli-web-cotb2018.s3-website-us-east-1.amazonaws.com/
