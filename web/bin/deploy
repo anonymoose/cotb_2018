@@ -3,7 +3,10 @@
 SCRIPTPATH="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd $SCRIPTPATH/..
 
+BUCKET=s3://nuvuli-web-cotb2018
+
 rm -rf $SCRIPTPATH/../build
 yarn build
 cd $SCRIPTPATH/../build
-aws s3 sync . s3://nuvuli-web-cotb2018
+aws s3 mb $BUCKET
+aws s3 sync . $BUCKET

@@ -74,7 +74,7 @@ venv/
 .credentials
 .tern-port
 .idea
-zappa-settings.json
+zappa_settings.json
 
 # Vim
 

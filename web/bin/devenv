@@ -1,0 +1,37 @@
+#!/bin/bash
+
+SCRIPTPATH="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd $SCRIPTPATH/..
+
+echo ""
+echo ""
+echo ""
+echo '---------------------------------------------------------'
+echo '--          Downloading yarn, nvm, node                --'
+echo '---------------------------------------------------------'
+brew install yarn nvm
+brew upgrade yarn nvm
+
+export NVM_DIR="$HOME/.nvm"
+. "/usr/local/opt/nvm/nvm.sh"
+
+nvm install 10
+nvm use 10
+
+echo ""
+echo ""
+echo ""
+echo '---------------------------------------------------------'
+echo '--          Installing dev tools                       --'
+echo '---------------------------------------------------------'
+
+yarn global add tern eslint babel-eslint eslint-plugin-react js-beautify
+
+echo ""
+echo ""
+echo ""
+echo '---------------------------------------------------------'
+echo '--          Installing dependencies                    --'
+echo '---------------------------------------------------------'
+yarn install
+
